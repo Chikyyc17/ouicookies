@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Oui Cookies | Galleta Artesanal con Miel y Naranja</title>
+    <!-- Meta descripción para SEO y mercadeo -->
+    <meta name="description" content="Oui Cookies: la galleta perfecta con miel pura y un toque cítrico de naranja. Horneada con amor, endulzada por la naturaleza. Descubre nuestra promoción de lanzamiento.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            background-color: #FEF9E7; /* Crema de fondo */
+            color: #4A3B2F; /* Marrón oscuro para texto */
+            line-height: 1.6;
+        }
+
+        /* PALETA DE COLORES: Naranja, Marrón, Crema, Amarillo */
+        :root {
+            --naranja: #F28C38;      /* Naranja vibrante */
+            --naranja-oscuro: #D9722A;
+            --marron: #5C3E2E;       /* Marrón profundo */
+            --marron-claro: #8B6B4A;
+            --crema: #FEF9E7;
+            --amarillo: #F7DC6F;     /* Amarillo miel */
+            --amarillo-suave: #FCE4A8;
+            --blanco: #FFFBF2;
+            --sombra-suave: 0 8px 20px rgba(90, 60, 30, 0.08);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Hero con propuesta de valor */
+        header {
+            background: linear-gradient(135deg, #FFF2D6 0%, #FDE5B4 100%);
+            padding: 20px 0 40px 0;
+            border-bottom: 3px solid var(--naranja);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        /* 🟠 NUEVO ESTILO PARA EL LOGO - Imagen */
+        .logo-img {
+            height: 65px; /* Ajusta el tamaño de tu logo */
+            width: auto;
+            transition: transform 0.2s;
+        }
+        .logo-img:hover {
+            transform: scale(1.03);
+        }
+        /* Si prefieres tener un texto de respaldo mientras cargas la imagen, mantenemos el estilo del texto también */
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--marron);
+            background: rgba(255,255,240,0.7);
+            padding: 8px 20px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            display: none; /* Oculto por defecto si hay logo */
+        }
+        .logo-text span {
+            color: var(--naranja);
+            font-style: italic;
+        }
+
+        .cta-header {
+            background-color: var(--naranja);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 6px 14px rgba(242, 140, 56, 0.4);
+            transition: transform 0.2s, background 0.2s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        .cta-header:hover {
+            background-color: #E07B2C;
+            transform: scale(1.03);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .hero-text {
+            flex: 1 1 350px;
+        }
+        .hero-text h1 {
+            font-size: 3.2rem;
+            color: var(--marron);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        .hero-text .highlight {
+            color: var(--naranja);
+            background: rgba(255,255,220,0.7);
+            padding: 0 8px;
+        }
+        .hero-text p {
+            font-size: 1.3rem;
+            margin: 20px 0 25px;
+            color: var(--marron-claro);
+        }
+        .precio-lanzamiento {
+            background-color: var(--amarillo);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--marron);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
+        }
+        .precio-lanzamiento small {
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: #8B6B4A;
+            margin-right: 12px;
+        }
+
+        .hero-image {
+            flex: 1 1 280px;
+            text-align: center;
+            background: #FFD9A0;
+            border-radius: 50%;
+            padding: 20px;
+            box-shadow: 0 20px 35px rgba(242, 140, 56, 0.25);
+        }
+        .hero-image .cookie-emoji {
+            font-size: 12rem;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.15));
+        }
+
+        /* Secciones generales */
+        section {
+            padding: 60px 0;
+        }
+        h2 {
+            font-size: 2.4rem;
+            color: var(--marron);
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--naranja);
+            margin: 12px auto 0;
+            border-radius: 5px;
+        }
+
+        /* Producto y características (marketing mix) */
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 35px;
+            align-items: center;
+            background: white;
+            border-radius: 50px;
+            padding: 35px;
+            box-shadow: var(--sombra-suave);
+            background: #FFFBF2;
+        }
+        .product-img {
+            flex: 1 1 250px;
+            text-align: center;
+            font-size: 10rem;
+            background: #FDE5B4;
+            border-radius: 60px;
+            padding: 20px;
+        }
+        .product-details {
+            flex: 2 1 400px;
+        }
+        .product-details h3 {
+            font-size: 2rem;
+            color: var(--naranja-oscuro);
+        }
+        .benefits {
+            list-style: none;
+            margin: 20px 0;
+        }
+        .benefits li {
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .benefits li::before {
+            content: "🍊";
+            font-size: 1.5rem;
+        }
+
+        .packaging-info {
+            background: var(--amarillo-suave);
+            padding: 15px 20px;
+            border-radius: 30px;
+            margin: 20px 0;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Promociones y precios */
+        .promo-section {
+            background: linear-gradient(to right, #FFF2D6, #FFECD2);
+            border-radius: 80px;
+            padding: 35px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px dashed var(--naranja);
+        }
+        .precios-flex {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        .precio-card {
+            background: white;
+            border-radius: 40px;
+            padding: 25px 30px;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+            min-width: 170px;
+        }
+        .precio-card h4 {
+            color: var(--naranja);
+            font-size: 1.5rem;
+        }
+        .precio-numero {
+            font-size: 2.7rem;
+            font-weight: 800;
+            color: var(--marron);
+        }
+
+        /* Publicidad / Testimonios */
+        .testimonios {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .testimonio {
+            background: white;
+            border-left: 8px solid var(--amarillo);
+            padding: 25px;
+            border-radius: 30px;
+            flex: 1 1 250px;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .ad-banner {
+            background-color: var(--naranja);
+            color: white;
+            padding: 30px;
+            border-radius: 50px;
+            text-align: center;
+            margin: 40px 0;
+            font-weight: bold;
+            font-size: 1.8rem;
+            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0px, rgba(255,255,255,0.1) 15px, transparent 15px, transparent 30px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--marron);
+            color: #FDE5B4;
+            padding: 30px;
+            text-align: center;
+            border-top: 6px solid var(--naranja);
+        }
+        .social-links a {
+            color: var(--amarillo);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        button, .btn {
+            background: var(--naranja);
+            border: none;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        button:hover {
+            background: #C56A1E;
+        }
+
+        @media (max-width: 700px) {
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="top-bar">
+                <!-- 🔄 CAMBIO AQUÍ: Ahora usamos una imagen para el logo -->
+                <!-- Simplemente cambia 'ruta/a/tu/logo.png' por el nombre de tu archivo de imagen -->
+                <img src="logo-oui-cookies.png" alt="Oui Cookies Logo" class="logo-img">
+                
+                <!-- Texto de respaldo (se oculta si la imagen carga bien) -->
+                <div class="logo-text">Oui <span>Cookies</span></div>
+                
+                <a href="#promocion" class="cta-header">🧡 Prueba el sabor francés</a>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>La <span class="highlight">galleta</span> que dice <em>Oui</em> a lo natural</h1>
+                    <p>Miel pura de abeja y ralladura de naranja fresca. Crujiente por fuera, suave por dentro. Un viaje sensorial en cada bocado.</p>
+                    <div class="precio-lanzamiento">
+                        <small>$4.500</small> $3.200 <span style="font-size:1rem;">/ pack x6</span>
+                    </div>
+                    <p style="font-weight:600; color:#5C3E2E;">🎯 Lanzamiento especial · 20% dto.</p>
+                    <a href="#comprar" class="btn" style="margin-top:10px;">🛒 Quiero mis Oui Cookies</a>
+                </div>
+                <div class="hero-image">
+                    <div class="cookie-emoji">🍪🍯🍊</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Sección Producto (marketing mix: producto) -->
+        <section>
+            <h2>Nuestra Receta Única</h2>
+            <div class="product-grid">
+                <div class="product-img">
+                    🍪✨
+                </div>
+                <div class="product-details">
+                    <h3>Oui Cookies · Miel & Naranja</h3>
+                    <ul class="benefits">
+                        <li><strong>Miel 100% pura</strong> – endulzante natural, sin azúcares refinados.</li>
+                        <li><strong>Ralladura de naranja orgánica</strong> – aceites esenciales que despiertan los sentidos.</li>
+                        <li><strong>Mantequilla de campo</strong> – textura inigualable.</li>
+                        <li><strong>Sin conservantes</strong> – horneado diario.</li>
+                    </ul>
+                    <div class="packaging-info">
+                        <span style="font-size:2rem;">📦</span> 
+                        <span><strong>Empaque biodegradable</strong> con ventana transparente. Caja de 6 galletas (150g). Ideal para regalo o antojo personal.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estrategia de precio y promoción -->
+        <section id="promocion">
+            <h2>Promoción de Lanzamiento</h2>
+            <div class="promo-section">
+                <p style="font-size:1.4rem; color: var(--marron);"><strong>🎉 ¡Solo por tiempo limitado!</strong></p>
+                <div class="precios-flex">
+                    <div class="precio-card">
+                        <h4>Pack Individual</h4>
+                        <p class="precio-numero">$3.200</p>
+                        <p>6 galletas · 150g</p>
+                        <p style="text-decoration:line-through; color:#8B6B4A;">$4.500</p>
+                    </div>
+                    <div class="precio-card" style="border: 3px solid var(--naranja);">
+                        <h4>🧡 Pack Dúo</h4>
+                        <p class="precio-numero">$5.800</p>
+                        <p>12 galletas · 300g</p>
+                        <p style="color:#D9722A; font-weight:bold;">Ahorras $3.200</p>
+                    </div>
+                    <div class="precio-card">
+                        <h4>🍯 Pack Amigos</h4>
+                        <p class="precio-numero">$10.900</p>
+                        <p>24 galletas + Sticker Oui</p>
+                        <p>Envío gratis</p>
+                    </div>
+                </div>
+                <p style="margin-top:25px;"><strong>🎁 Por compras superiores a $8.000, llévate un muestrario de miel artesanal.</strong></p>
+                <a href="#" class="btn" id="comprar" style="margin-top:15px; background:var(--marron);">Comprar ahora con descuento</a>
+            </div>
+        </section>
+
+        <!-- Publicidad & comunicación integrada -->
+        <section>
+            <h2>Lo que dicen nuestros clientes</h2>
+            <div class="testimonios">
+                <div class="testimonio">
+                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                    <p>"El equilibrio entre la miel y la naranja es perfecto. Las pedí para una merienda y desaparecieron en minutos. ¡Repetiré el pack dúo!"</p>
+                    <p><strong>- Carolina M.</strong></p>
+                </div>
+                <div class="testimonio">
+                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                    <p>"Me encanta que sean sin azúcar refinada. La textura es increíble y el aroma a naranja fresca enamora. Oui Cookies cumplió."</p>
+                    <p><strong>- Andrés R.</strong></p>
+                </div>
+                <div class="testimonio">
+                    <p>⭐️⭐️⭐️⭐️⭐️</p>
+                    <p>"El empaque es hermoso, lo regalé a mi hermana y pensó que era de pastelería premium. La miel se siente de verdad."</p>
+                    <p><strong>- Valentina G.</strong></p>
+                </div>
+            </div>
+
+            <div class="ad-banner">
+                🍊✨ ¿Antojo de algo real? <br> <span style="font-size:1.9rem;">Oui Cookies · Miel & Naranja</span> <br>
+                <span style="font-size:1.2rem;">#OuiCookies #HechoConMiel #NaranjaNatural</span>
+            </div>
+        </section>
+
+        <!-- Estrategia de distribución / canal -->
+        <section style="background: #FFF6E5; border-radius: 70px; padding: 30px;">
+            <h2>Encuéntranos</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:25px; align-items:center; justify-content: center;">
+                <div style="flex:1; min-width:200px;">
+                    <p style="font-size:1.3rem;">🛵 <strong>Envíos a todo Santiago</strong> (pedidos sobre $6.000 gratis)</p>
+                    <p>📦 <strong>Pickup en Providencia</strong> · Miércoles y Sábados</p>
+                    <p>🛍️ <strong>Ferias locales:</strong> Parque Araucano · Mercado Artesanal</p>
+                </div>
+                <div style="background:var(--naranja); color:white; padding:20px; border-radius:40px; text-align:center;">
+                    <p style="font-size:1.4rem; font-weight:bold;">📲 Pide por Instagram</p>
+                    <p>@OuiCookies_CL</p>
+                    <p>o al WhatsApp +56 9 1234 5678</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <!-- También puedes poner el logo en el footer si quieres -->
+            <img src="logo-oui-cookies.png" alt="Oui Cookies" style="height:50px; margin-bottom:10px;">
+            <p style="font-size:1.3rem; margin-top:10px;">Galletas con miel y naranja · Hechas con amor y marketing estratégico</p>
+            <div class="social-links">
+                <a href="#">Instagram</a> | 
+                <a href="#">TikTok</a> | 
+                <a href="#">Pedidos WhatsApp</a>
+            </div>
+            <p style="margin-top:20px; font-size:0.9rem; color:#FCE4A8;">© 2025 Oui Cookies · Todos los derechos reservados · Proyecto de Mercadeo.</p>
+        </div>
+    </footer>
+</body>
+</html>
