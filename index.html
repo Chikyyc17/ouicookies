@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
     <title>Oui Cookies | Galleta Artesanal con Miel y Naranja · Barquisimeto</title>
     <meta name="description" content="Oui Cookies: galletas artesanales con miel pura y naranja en Barquisimeto, Lara. Horneadas con amor, endulzadas por la naturaleza. ¡Prueba el sabor francés en Venezuela!">
     <style>
@@ -12,15 +13,20 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
-            background-color: #FEF9E7;
-            color: #4A3B2F;
-            line-height: 1.6;
-            overflow-x: hidden;
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
 
-        /* PALETA DE COLORES MEJORADA */
+        body {
+            font-family: 'Segoe UI', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #FEF9E7;
+            color: #4A3B2F;
+            line-height: 1.5;
+            overflow-x: hidden;
+            min-width: 320px;
+        }
+
         :root {
             --naranja: #F28C38;
             --naranja-oscuro: #D9722A;
@@ -30,43 +36,23 @@
             --amarillo: #F7DC6F;
             --amarillo-suave: #FCE4A8;
             --blanco: #FFFBF2;
-            --sombra-suave: 0 10px 30px rgba(90, 60, 30, 0.1);
-            --sombra-intensa: 0 20px 40px rgba(242, 140, 56, 0.25);
         }
 
-        /* 🌟 ANIMACIONES GLOBALES */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-15px); }
         }
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        @keyframes rotateSlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            50% { transform: scale(1.04); }
         }
         @keyframes borderGlow {
             0%, 100% { box-shadow: 0 0 15px rgba(242, 140, 56, 0.4); }
-            50% { box-shadow: 0 0 30px rgba(242, 140, 56, 0.8); }
-        }
-        .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        .float {
-            animation: float 4s ease-in-out infinite;
-        }
-        .pulse {
-            animation: pulse 2s ease-in-out infinite;
+            50% { box-shadow: 0 0 25px rgba(242, 140, 56, 0.8); }
         }
 
         .container {
@@ -75,10 +61,10 @@
             padding: 0 20px;
         }
 
-        /* HEADER CON EFECTO WAVE */
+        /* 📱 HEADER RESPONSIVE */
         header {
             background: linear-gradient(135deg, #FFF2D6 0%, #FDE5B4 50%, #FFD68A 100%);
-            padding: 20px 0 60px 0;
+            padding: 20px 0 40px 0;
             border-bottom: 3px solid var(--naranja);
             position: relative;
             overflow: hidden;
@@ -86,10 +72,10 @@
         header::before {
             content: '';
             position: absolute;
-            bottom: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
+            bottom: -40px;
+            left: -40px;
+            width: 150px;
+            height: 150px;
             background: rgba(255,255,255,0.2);
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
@@ -97,10 +83,10 @@
         header::after {
             content: '';
             position: absolute;
-            top: -30px;
-            right: -30px;
-            width: 150px;
-            height: 150px;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
             background: rgba(255,255,255,0.15);
             border-radius: 50%;
             animation: float 5s ease-in-out infinite reverse;
@@ -111,40 +97,51 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 15px;
             margin-bottom: 30px;
             position: relative;
             z-index: 2;
         }
 
-        .logo-img {
-            height: 65px;
-            width: auto;
-            transition: transform 0.3s;
-            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.1));
+        .logo-link {
+            display: inline-block;
+            line-height: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            flex-shrink: 0;
         }
-        .logo-img:hover {
-            transform: scale(1.05) rotate(-2deg);
+        .logo-img {
+            height: 50px;
+            width: auto;
+            display: block;
+            background: transparent;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            transition: transform 0.3s, filter 0.3s;
+        }
+        .logo-img:active {
+            transform: scale(0.95);
         }
 
         .cta-header {
             background-color: var(--naranja);
             color: white;
-            padding: 14px 32px;
+            padding: 12px 24px;
             border-radius: 50px;
-            font-weight: bold;
+            font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 8px 20px rgba(242, 140, 56, 0.5);
+            font-size: 0.95rem;
+            white-space: nowrap;
+            box-shadow: 0 6px 18px rgba(242, 140, 56, 0.4);
             transition: all 0.3s;
-            display: inline-block;
-            font-size: 1rem;
             animation: pulse 2s infinite;
             position: relative;
             z-index: 2;
+            text-align: center;
         }
-        .cta-header:hover {
+        .cta-header:active {
+            transform: scale(0.96);
             background-color: #E07B2C;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(242, 140, 56, 0.6);
         }
 
         .hero-content {
@@ -152,302 +149,292 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 25px;
             position: relative;
             z-index: 2;
         }
         .hero-text {
-            flex: 1 1 350px;
-            animation: fadeInUp 1s ease;
+            flex: 1 1 300px;
+            animation: fadeInUp 0.8s ease;
         }
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 2.4rem;
             color: var(--marron);
             line-height: 1.2;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
         .hero-text .highlight {
             color: var(--naranja);
             background: linear-gradient(120deg, rgba(255,255,220,0.8) 0%, rgba(255,255,220,0) 100%);
-            padding: 0 10px;
-            border-radius: 5px;
+            padding: 0 6px;
+            border-radius: 4px;
         }
         .hero-text p {
-            font-size: 1.4rem;
-            margin: 20px 0 25px;
+            font-size: 1.1rem;
+            margin: 15px 0 20px;
             color: var(--marron-claro);
             font-weight: 500;
         }
         .ubicacion-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: white;
-            padding: 8px 20px;
-            border-radius: 30px;
+            padding: 6px 16px;
+            border-radius: 25px;
             font-weight: 600;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
             color: var(--marron);
         }
         .precio-lanzamiento {
             background-color: var(--amarillo);
             display: inline-block;
-            padding: 12px 28px;
-            border-radius: 40px;
+            padding: 10px 22px;
+            border-radius: 35px;
             font-weight: 700;
-            font-size: 1.9rem;
+            font-size: 1.5rem;
             color: var(--marron);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            margin-bottom: 15px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            margin-bottom: 12px;
             transition: transform 0.3s;
         }
-        .precio-lanzamiento:hover {
-            transform: scale(1.05);
-        }
         .precio-lanzamiento small {
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-decoration: line-through;
             color: #8B6B4A;
-            margin-right: 15px;
+            margin-right: 10px;
             font-weight: 500;
         }
 
         .hero-image {
-            flex: 1 1 280px;
+            flex: 1 1 220px;
             text-align: center;
             animation: float 5s ease-in-out infinite;
         }
-        .hero-image .cookie-circle {
-            width: 280px;
-            height: 280px;
+        .cookie-circle {
+            width: 200px;
+            height: 200px;
             background: radial-gradient(circle, #FFD9A0 0%, #FDB44B 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 25px 45px rgba(242, 140, 56, 0.35);
+            box-shadow: 0 20px 40px rgba(242, 140, 56, 0.3);
             margin: 0 auto;
-            transition: transform 0.3s;
-            border: 6px solid rgba(255,255,255,0.6);
+            border: 4px solid rgba(255,255,255,0.6);
         }
-        .hero-image .cookie-circle:hover {
-            transform: scale(1.05);
-        }
-        .hero-image .cookie-emoji {
-            font-size: 10rem;
-            filter: drop-shadow(0 12px 12px rgba(0,0,0,0.2));
+        .cookie-emoji {
+            font-size: 7rem;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.15));
         }
 
-        /* SECCIONES CON EFECTOS */
+        /* 📱 SECCIONES RESPONSIVE */
         section {
-            padding: 80px 0;
+            padding: 50px 0;
             position: relative;
         }
         h2 {
-            font-size: 2.8rem;
+            font-size: 2rem;
             color: var(--marron);
             text-align: center;
-            margin-bottom: 30px;
-            position: relative;
+            margin-bottom: 25px;
             font-weight: 800;
+            letter-spacing: -0.3px;
         }
         h2:after {
             content: '';
             display: block;
-            width: 90px;
-            height: 5px;
+            width: 70px;
+            height: 4px;
             background: var(--naranja);
-            margin: 15px auto 0;
-            border-radius: 10px;
+            margin: 12px auto 0;
+            border-radius: 8px;
             animation: borderGlow 2s infinite;
         }
 
         .product-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 25px;
             align-items: center;
             background: white;
-            border-radius: 60px;
-            padding: 40px;
-            box-shadow: var(--sombra-intensa);
-            transition: transform 0.3s;
-        }
-        .product-grid:hover {
-            transform: translateY(-5px);
+            border-radius: 30px;
+            padding: 25px;
+            box-shadow: 0 15px 30px rgba(242, 140, 56, 0.15);
         }
         .product-img {
-            flex: 1 1 250px;
+            flex: 1 1 180px;
             text-align: center;
-            font-size: 10rem;
+            font-size: 7rem;
             background: linear-gradient(135deg, #FDE5B4, #FFD68A);
             border-radius: 50%;
-            padding: 30px;
+            padding: 20px;
             animation: float 4s ease-in-out infinite;
         }
         .product-details {
-            flex: 2 1 400px;
+            flex: 2 1 280px;
         }
         .product-details h3 {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             color: var(--naranja-oscuro);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .benefits {
             list-style: none;
-            margin: 25px 0;
+            margin: 18px 0;
         }
         .benefits li {
-            margin-bottom: 15px;
-            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-size: 1rem;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             transition: transform 0.2s;
         }
-        .benefits li:hover {
-            transform: translateX(8px);
+        .benefits li:active {
+            transform: translateX(5px);
         }
         .benefits li::before {
             content: "🍊";
-            font-size: 1.8rem;
+            font-size: 1.3rem;
         }
 
         .packaging-info {
-            background: linear-gradient(135deg, var(--amarillo-suave), #FFF2D6);
-            padding: 20px 25px;
-            border-radius: 30px;
-            margin: 25px 0;
+            background: linear-gradient(135deg, #FCE4A8, #FFF2D6);
+            padding: 15px 20px;
+            border-radius: 25px;
+            margin: 18px 0;
             font-weight: 500;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
-            gap: 15px;
-            border-left: 5px solid var(--naranja);
+            gap: 10px;
+            border-left: 4px solid var(--naranja);
         }
 
-        /* PROMOCIONES */
+        /* 📱 PROMOCIONES */
         .promo-section {
             background: linear-gradient(135deg, #FFF2D6, #FFECD2, #FDE5B4);
-            border-radius: 80px;
-            padding: 45px;
-            margin: 40px 0;
+            border-radius: 40px;
+            padding: 30px 20px;
+            margin: 30px 0;
             text-align: center;
-            border: 3px dashed var(--naranja);
-            box-shadow: var(--sombra-intensa);
-            animation: fadeInUp 0.8s ease;
+            border: 2px dashed var(--naranja);
+            box-shadow: 0 15px 30px rgba(242, 140, 56, 0.15);
         }
         .precios-flex {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: 25px;
         }
         .precio-card {
             background: white;
-            border-radius: 50px;
-            padding: 30px 35px;
-            box-shadow: 0 20px 35px rgba(0,0,0,0.08);
-            min-width: 180px;
+            border-radius: 30px;
+            padding: 20px 25px;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+            min-width: 150px;
+            flex: 1 1 140px;
+            max-width: 220px;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
         }
-        .precio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 45px rgba(242, 140, 56, 0.3);
+        .precio-card:active {
+            transform: scale(0.97);
         }
         .precio-card.destacado {
-            border: 4px solid var(--naranja);
+            border: 3px solid var(--naranja);
             animation: borderGlow 2s infinite;
         }
         .precio-card h4 {
             color: var(--naranja);
-            font-size: 1.6rem;
+            font-size: 1.2rem;
             font-weight: 700;
         }
         .precio-numero {
-            font-size: 3rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--marron);
-            margin: 10px 0;
+            margin: 8px 0;
         }
 
-        /* TESTIMONIOS CON CARDS ELEGANTES */
         .testimonios {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
         .testimonio {
             background: white;
-            border-left: 10px solid var(--amarillo);
-            padding: 30px;
-            border-radius: 40px;
-            flex: 1 1 260px;
-            box-shadow: var(--sombra-suave);
+            border-left: 8px solid var(--amarillo);
+            padding: 20px 25px;
+            border-radius: 25px;
+            flex: 1 1 250px;
+            max-width: 350px;
+            box-shadow: 0 10px 25px rgba(90, 60, 30, 0.06);
             transition: all 0.3s;
             position: relative;
         }
-        .testimonio:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--sombra-intensa);
+        .testimonio:active {
+            transform: translateY(-3px);
         }
         .testimonio::before {
             content: '"';
-            font-size: 5rem;
+            font-size: 4rem;
             color: var(--naranja);
-            opacity: 0.2;
+            opacity: 0.15;
             position: absolute;
-            top: 10px;
-            right: 20px;
+            top: 5px;
+            right: 15px;
         }
 
         .ad-banner {
             background: linear-gradient(135deg, var(--naranja), #E07B2C);
             color: white;
-            padding: 40px;
-            border-radius: 60px;
+            padding: 30px 20px;
+            border-radius: 35px;
             text-align: center;
-            margin: 50px 0;
-            font-weight: bold;
-            font-size: 2rem;
-            box-shadow: var(--sombra-intensa);
+            margin: 35px 0;
+            font-weight: 700;
+            font-size: 1.3rem;
+            box-shadow: 0 15px 35px rgba(242, 140, 56, 0.35);
             animation: pulse 3s infinite;
-            position: relative;
-            overflow: hidden;
-        }
-        .ad-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
-            animation: shimmer 3s infinite;
         }
 
-        /* FOOTER */
+        /* 📱 FOOTER */
         footer {
             background: linear-gradient(135deg, var(--marron), #3E2723);
             color: #FDE5B4;
-            padding: 40px;
+            padding: 35px 20px;
             text-align: center;
-            border-top: 8px solid var(--naranja);
+            border-top: 6px solid var(--naranja);
+        }
+        .footer-logo {
+            height: 50px;
+            width: auto;
+            background: transparent;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+            margin-bottom: 12px;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 18px 0;
         }
         .social-links a {
             color: var(--amarillo);
-            margin: 0 20px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: color 0.3s;
         }
-        .social-links a:hover {
+        .social-links a:active {
             color: white;
         }
 
@@ -455,27 +442,81 @@
             background: var(--naranja);
             border: none;
             color: white;
-            padding: 16px 38px;
-            border-radius: 50px;
+            padding: 14px 30px;
+            border-radius: 45px;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 10px 25px rgba(242, 140, 56, 0.5);
-            letter-spacing: 0.5px;
+            box-shadow: 0 8px 22px rgba(242, 140, 56, 0.4);
+            letter-spacing: 0.3px;
+            text-align: center;
         }
-        .btn:hover {
+        .btn:active {
             background: #C56A1E;
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(242, 140, 56, 0.6);
+            transform: scale(0.96);
         }
 
-        @media (max-width: 700px) {
-            .hero-text h1 { font-size: 2.6rem; }
-            .hero-image .cookie-circle { width: 220px; height: 220px; }
-            .hero-image .cookie-emoji { font-size: 7rem; }
+        /* 📱📱 MEDIA QUERIES PARA DIFERENTES PANTALLAS */
+
+        /* Tablets grandes y desktop pequeño */
+        @media (min-width: 768px) {
+            .logo-img { height: 65px; }
+            .hero-text h1 { font-size: 3rem; }
+            .hero-text p { font-size: 1.2rem; }
+            .cookie-circle { width: 240px; height: 240px; }
+            .cookie-emoji { font-size: 8.5rem; }
+            .product-grid { border-radius: 50px; padding: 35px; }
+            .product-img { font-size: 8rem; }
+            .precio-numero { font-size: 2.5rem; }
+            h2 { font-size: 2.3rem; }
+            .ad-banner { font-size: 1.6rem; padding: 35px 25px; }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .hero-text h1 { font-size: 3.5rem; }
+            .cookie-circle { width: 280px; height: 280px; }
+            .cookie-emoji { font-size: 10rem; }
+            .product-img { font-size: 10rem; }
+            .precio-card { min-width: 170px; }
+            .precio-numero { font-size: 2.8rem; }
+            h2 { font-size: 2.6rem; }
+            .ad-banner { font-size: 1.9rem; }
+        }
+
+        /* Móviles pequeños (iPhone SE, Galaxy S8, etc.) */
+        @media (max-width: 480px) {
+            .top-bar { justify-content: center; text-align: center; }
+            .cta-header { width: 100%; max-width: 250px; text-align: center; }
+            .hero-text h1 { font-size: 2rem; }
+            .hero-text p { font-size: 1rem; }
+            .precio-lanzamiento { font-size: 1.3rem; padding: 8px 18px; }
+            .cookie-circle { width: 160px; height: 160px; }
+            .cookie-emoji { font-size: 5.5rem; }
+            .product-grid { flex-direction: column; text-align: center; }
+            .product-img { margin: 0 auto; width: 150px; height: 150px; font-size: 5rem; }
+            .benefits li { justify-content: center; }
+            .packaging-info { flex-direction: column; text-align: center; }
+            .precios-flex { flex-direction: column; align-items: center; }
+            .precio-card { max-width: 280px; width: 100%; }
+            .testimonio { max-width: 100%; }
+            h2 { font-size: 1.7rem; }
+            .ad-banner { font-size: 1.1rem; padding: 25px 15px; border-radius: 25px; }
+            .btn { width: 100%; max-width: 300px; }
+            section { padding: 35px 0; }
+            .container { padding: 0 15px; }
+            .ubicacion-badge { font-size: 0.8rem; padding: 5px 12px; }
+        }
+
+        /* Ajuste para evitar estiramiento en pantallas muy angostas */
+        @media (max-width: 360px) {
+            .hero-text h1 { font-size: 1.8rem; }
+            .cookie-circle { width: 140px; height: 140px; }
+            .cookie-emoji { font-size: 4.5rem; }
+            .precio-lanzamiento { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -483,7 +524,9 @@
     <header>
         <div class="container">
             <div class="top-bar">
-                <img src="logo-oui-cookies.png" alt="Oui Cookies Logo" class="logo-img fade-in">
+                <a href="#" class="logo-link">
+                    <img src="logo-oui-cookies.png" alt="Oui Cookies Logo" class="logo-img fade-in">
+                </a>
                 <a href="#promocion" class="cta-header">🧡 ¡Quiero probarlas!</a>
             </div>
             <div class="hero-content">
@@ -494,10 +537,10 @@
                     <h1>La <span class="highlight">galleta</span> que dice <em>Oui</em> a lo natural</h1>
                     <p>Miel pura de abeja y ralladura de naranja fresca. Crujiente por fuera, suave por dentro. Un viaje sensorial en cada bocado.</p>
                     <div class="precio-lanzamiento pulse">
-                        <small>$5.00</small> $3.80 <span style="font-size:1rem;">/ pack x6</span>
+                        <small>$5.00</small> $3.80 <span style="font-size:0.9rem;">/ pack x6</span>
                     </div>
-                    <p style="font-weight:700; color:#5C3E2E; font-size:1.2rem;">🎯 Lanzamiento especial · 24% dto.</p>
-                    <a href="#comprar" class="btn" style="margin-top:15px;">🛒 Quiero mis Oui Cookies</a>
+                    <p style="font-weight:700; color:#5C3E2E; font-size:1rem;">🎯 Lanzamiento especial · 24% dto.</p>
+                    <a href="#comprar" class="btn" style="margin-top:12px;">🛒 Quiero mis Oui Cookies</a>
                 </div>
                 <div class="hero-image">
                     <div class="cookie-circle">
@@ -512,20 +555,18 @@
         <section>
             <h2 class="fade-in">Nuestra Receta Única</h2>
             <div class="product-grid fade-in">
-                <div class="product-img">
-                    🍯✨
-                </div>
+                <div class="product-img">🍯✨</div>
                 <div class="product-details">
                     <h3>Oui Cookies · Miel & Naranja</h3>
                     <ul class="benefits">
-                        <li><strong>Miel 100% pura</strong> – endulzante natural, sin azúcares refinados.</li>
-                        <li><strong>Ralladura de naranja orgánica</strong> – aceites esenciales que despiertan los sentidos.</li>
-                        <li><strong>Mantequilla de campo</strong> – textura inigualable.</li>
-                        <li><strong>Sin conservantes</strong> – horneado diario en Barquisimeto.</li>
+                        <li><strong>Miel 100% pura</strong> – endulzante natural</li>
+                        <li><strong>Ralladura de naranja orgánica</strong> – aceites esenciales</li>
+                        <li><strong>Mantequilla de campo</strong> – textura inigualable</li>
+                        <li><strong>Sin conservantes</strong> – horneado diario en Barquisimeto</li>
                     </ul>
                     <div class="packaging-info">
-                        <span style="font-size:2.5rem;">📦</span> 
-                        <span><strong>Empaque biodegradable</strong> con ventana transparente. Caja de 6 galletas (150g). Ideal para regalo o antojo personal.</span>
+                        <span style="font-size:2rem;">📦</span> 
+                        <span><strong>Empaque biodegradable</strong> con ventana transparente. Caja de 6 galletas (150g).</span>
                     </div>
                 </div>
             </div>
@@ -534,7 +575,7 @@
         <section id="promocion">
             <h2 class="fade-in">Promoción de Lanzamiento</h2>
             <div class="promo-section">
-                <p style="font-size:1.5rem; color: var(--marron);"><strong>🎉 ¡Solo por tiempo limitado en Barquisimeto!</strong></p>
+                <p style="font-size:1.2rem; color: var(--marron);"><strong>🎉 ¡Solo por tiempo limitado en Barquisimeto!</strong></p>
                 <div class="precios-flex">
                     <div class="precio-card fade-in">
                         <h4>Pack Individual</h4>
@@ -551,54 +592,54 @@
                     <div class="precio-card fade-in">
                         <h4>🍯 Pack Amigos</h4>
                         <p class="precio-numero">$12.50</p>
-                        <p>24 galletas + Sticker Oui</p>
+                        <p>24 galletas + Sticker</p>
                         <p style="color:var(--naranja);">¡Envío gratis!</p>
                     </div>
                 </div>
-                <p style="margin-top:30px; font-size:1.2rem;"><strong>🎁 Por compras superiores a $10.00, llévate un muestrario de miel artesanal venezolana.</strong></p>
-                <a href="#" class="btn" id="comprar" style="margin-top:15px; background:var(--marron); font-size:1.3rem;">Comprar ahora con descuento</a>
+                <p style="margin-top:22px; font-size:1rem;"><strong>🎁 Por compras superiores a $10.00, llévate un muestrario de miel artesanal venezolana.</strong></p>
+                <a href="#" class="btn" id="comprar" style="margin-top:15px; background:var(--marron);">Comprar ahora con descuento</a>
             </div>
         </section>
 
         <section>
-            <h2 class="fade-in">Lo que dicen nuestros clientes</h2>
+            <h2 class="fade-in">Nuestros clientes dicen</h2>
             <div class="testimonios">
                 <div class="testimonio fade-in">
-                    <p style="font-size:1.5rem;">⭐️⭐️⭐️⭐️⭐️</p>
-                    <p>"El equilibrio entre la miel y la naranja es perfecto. Las pedí para una merienda en Barquisimeto y desaparecieron en minutos. ¡Repetiré el pack dúo!"</p>
+                    <p style="font-size:1.2rem;">⭐️⭐️⭐️⭐️⭐️</p>
+                    <p>"El equilibrio entre miel y naranja es perfecto. Las pedí en Barquisimeto y desaparecieron en minutos. ¡Repetiré!"</p>
                     <p><strong>- Carolina M.</strong></p>
                 </div>
                 <div class="testimonio fade-in">
-                    <p style="font-size:1.5rem;">⭐️⭐️⭐️⭐️⭐️</p>
-                    <p>"Me encanta que sean sin azúcar refinada. La textura es increíble y el aroma a naranja fresca enamora. Oui Cookies cumplió."</p>
+                    <p style="font-size:1.2rem;">⭐️⭐️⭐️⭐️⭐️</p>
+                    <p>"Sin azúcar refinada, textura increíble y aroma a naranja fresca. Oui Cookies cumplió mis expectativas."</p>
                     <p><strong>- Andrés R.</strong></p>
                 </div>
                 <div class="testimonio fade-in">
-                    <p style="font-size:1.5rem;">⭐️⭐️⭐️⭐️⭐️</p>
-                    <p>"El empaque es hermoso, lo regalé a mi hermana y pensó que era de pastelería premium. La miel se siente de verdad."</p>
+                    <p style="font-size:1.2rem;">⭐️⭐️⭐️⭐️⭐️</p>
+                    <p>"Empaque hermoso, lo regalé y pensaron que era de pastelería premium. La miel se siente real."</p>
                     <p><strong>- Valentina G.</strong></p>
                 </div>
             </div>
 
             <div class="ad-banner">
                 🍊✨ ¿Antojo de algo real en Lara? <br> 
-                <span style="font-size:2.2rem;">Oui Cookies · Miel & Naranja</span> <br>
-                <span style="font-size:1.3rem;">#OuiCookies #Barquisimeto #HechoEnVenezuela</span>
+                <span style="font-size:1.6rem;">Oui Cookies · Miel & Naranja</span> <br>
+                <span style="font-size:1rem;">#OuiCookies #Barquisimeto #HechoEnVenezuela</span>
             </div>
         </section>
 
-        <section style="background: linear-gradient(135deg, #FFF6E5, #FFECD2); border-radius: 70px; padding: 40px; box-shadow: var(--sombra-intensa);">
+        <section style="background: linear-gradient(135deg, #FFF6E5, #FFECD2); border-radius: 40px; padding: 30px 20px; box-shadow: 0 15px 30px rgba(242, 140, 56, 0.15);">
             <h2>Encuéntranos en Barquisimeto</h2>
-            <div style="display:flex; flex-wrap:wrap; gap:30px; align-items:center; justify-content: center;">
-                <div style="flex:1; min-width:220px; font-size:1.2rem;">
+            <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content: center; text-align:left;">
+                <div style="flex:1 1 220px; font-size:1rem;">
                     <p>🛵 <strong>Envíos a todo Barquisimeto</strong> (pedidos sobre $8.00 gratis)</p>
-                    <p>📦 <strong>Pickup en Centro Comercial Las Trinitarias</strong> · Miércoles y Sábados</p>
-                    <p>🛍️ <strong>Ferias locales:</strong> Parque del Este · Mercado Artesanal de Lara</p>
+                    <p style="margin-top:8px;">📦 <strong>Pickup en CC Las Trinitarias</strong> · Miércoles y Sábados</p>
+                    <p style="margin-top:8px;">🛍️ <strong>Ferias:</strong> Parque del Este · Mercado Artesanal de Lara</p>
                 </div>
-                <div style="background:var(--naranja); color:white; padding:30px; border-radius:50px; text-align:center; box-shadow: 0 15px 30px rgba(242,140,56,0.4);">
-                    <p style="font-size:1.5rem; font-weight:bold;">📲 Pide por Instagram</p>
-                    <p style="font-size:1.3rem;">@OuiCookiesVe</p>
-                    <p style="font-size:1.1rem;">o al WhatsApp +58 412-1234567</p>
+                <div style="background:var(--naranja); color:white; padding:22px 25px; border-radius:35px; text-align:center; box-shadow: 0 12px 28px rgba(242,140,56,0.35);">
+                    <p style="font-size:1.3rem; font-weight:bold;">📲 Pide por Instagram</p>
+                    <p style="font-size:1.1rem;">@OuiCookiesVe</p>
+                    <p style="font-size:1rem;">WhatsApp +58 412-1234567</p>
                 </div>
             </div>
         </section>
@@ -606,15 +647,15 @@
 
     <footer>
         <div class="container">
-            <img src="https://drive.google.com/uc?export=view&id=1GgL4klf8db6p2T6mMOXDoKFlF4p-qWWc" alt="Oui Cookies" style="height:60px; margin-bottom:15px;">
-            <p style="font-size:1.4rem; margin-top:10px; font-weight:600;">🍪 Oui Cookies · Barquisimeto, Lara, Venezuela</p>
-            <p style="font-size:1.1rem;">Galletas con miel y naranja · Hechas con amor y marketing estratégico</p>
-            <div class="social-links" style="margin: 20px 0;">
-                <a href="#">📸 Instagram</a> | 
-                <a href="#">🎵 TikTok</a> | 
+            <img src="logo-oui-cookies.png" alt="Oui Cookies" class="footer-logo">
+            <p style="font-size:1.2rem; margin-top:10px; font-weight:600;">🍪 Oui Cookies · Barquisimeto, Lara</p>
+            <p style="font-size:1rem;">Galletas con miel y naranja · Hechas con amor y marketing</p>
+            <div class="social-links">
+                <a href="#">📸 Instagram</a>
+                <a href="#">🎵 TikTok</a>
                 <a href="#">💬 WhatsApp</a>
             </div>
-            <p style="margin-top:25px; font-size:1rem; color:#FCE4A8;">© 2025 Oui Cookies · Todos los derechos reservados · Proyecto Universitario de Mercadeo</p>
+            <p style="margin-top:20px; font-size:0.85rem; color:#FCE4A8;">© 2025 Oui Cookies · Proyecto Universitario de Mercadeo</p>
         </div>
     </footer>
 </body>
