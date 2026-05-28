@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
     <meta name="format-detection" content="telephone=no">
     <title>Oui Cookies | Galleta Artesanal con Miel y Naranja · Barquisimeto</title>
-    <meta name="description" content="Oui Cookies: galletas artesanales con miel pura y naranja en Barquisimeto, Lara. Horneadas con amor, endulzadas por la naturaleza. ¡Prueba el sabor francés en Venezuela!">
+    <meta name="description" content="Oui Cookies: galletas artesanales con miel pura y naranja, libres de gluten. El SÍ que te mereces. Hechas en Barquisimeto, Lara.">
     <style>
         * {
             margin: 0;
@@ -161,7 +161,7 @@
             font-size: 2.4rem;
             color: var(--marron);
             line-height: 1.2;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
@@ -170,6 +170,13 @@
             background: linear-gradient(120deg, rgba(255,255,220,0.8) 0%, rgba(255,255,220,0) 100%);
             padding: 0 6px;
             border-radius: 4px;
+        }
+        .hero-text .eslogan {
+            font-size: 1.3rem;
+            color: var(--naranja-oscuro);
+            font-style: italic;
+            font-weight: 600;
+            margin-bottom: 12px;
         }
         .hero-text p {
             font-size: 1.1rem;
@@ -226,10 +233,14 @@
             box-shadow: 0 20px 40px rgba(242, 140, 56, 0.3);
             margin: 0 auto;
             border: 4px solid rgba(255,255,255,0.6);
+            overflow: hidden; /* Mantener la imagen dentro del círculo */
         }
-        .cookie-emoji {
-            font-size: 7rem;
+        /* Ajustar la imagen del pack para que llene el círculo con gracia */
+        .hero-product-img {
+            max-width: 90%;
+            max-height: 90%;
             filter: drop-shadow(0 10px 10px rgba(0,0,0,0.15));
+            object-fit: contain;
         }
 
         /* 📱 SECCIONES RESPONSIVE */
@@ -266,15 +277,35 @@
             padding: 25px;
             box-shadow: 0 15px 30px rgba(242, 140, 56, 0.15);
         }
-        .product-img {
+        /* Ajustar la sección de la imagen del producto en la grilla */
+        .product-img-wrapper {
             flex: 1 1 180px;
             text-align: center;
-            font-size: 7rem;
-            background: linear-gradient(135deg, #FDE5B4, #FFD68A);
-            border-radius: 50%;
-            padding: 20px;
+            position: relative;
             animation: float 4s ease-in-out infinite;
         }
+        .product-img-circle {
+            background: linear-gradient(135deg, #FDE5B4, #FFD68A);
+            border-radius: 50%;
+            padding: 10px;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 4px solid rgba(255,255,255,0.6);
+        }
+        /* La nueva foto artística de ingredientes y galleta */
+        .ingredient-closeup-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
         .product-details {
             flex: 2 1 280px;
         }
@@ -299,7 +330,6 @@
             transform: translateX(5px);
         }
         .benefits li::before {
-            content: "🍊";
             font-size: 1.3rem;
         }
 
@@ -314,6 +344,39 @@
             align-items: center;
             gap: 10px;
             border-left: 4px solid var(--naranja);
+        }
+
+        /* 🏷️ ETIQUETA NUTRICIONAL */
+        .tabla-nutricional {
+            background: white;
+            border: 2px solid var(--naranja);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px auto;
+            font-size: 0.9rem;
+            max-width: 380px;
+        }
+        .tabla-nutricional h4 {
+            color: var(--marron);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .tabla-nutricional table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .tabla-nutricional td {
+            padding: 6px 4px;
+            border-bottom: 1px solid #eee;
+        }
+        .tabla-nutricional td:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+        .tabla-nutricional .sub {
+            padding-left: 20px;
+            color: #666;
         }
 
         /* 📱 PROMOCIONES */
@@ -412,6 +475,7 @@
             padding: 35px 20px;
             text-align: center;
             border-top: 6px solid var(--naranja);
+            font-size: 0.9rem;
         }
         .footer-logo {
             height: 50px;
@@ -459,45 +523,64 @@
             transform: scale(0.96);
         }
 
-        /* 📱📱 MEDIA QUERIES PARA DIFERENTES PANTALLAS */
+        /* Badges */
+        .alergeno-badge {
+            display: inline-block;
+            background: #FFF3CD;
+            color: #856404;
+            border: 1px solid #FFEEBA;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin: 5px 0;
+        }
+        .gluten-free-badge {
+            display: inline-block;
+            background: #D4EDDA;
+            color: #155724;
+            border: 1px solid #C3E6CB;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin: 5px 5px;
+        }
 
-        /* Tablets grandes y desktop pequeño */
         @media (min-width: 768px) {
             .logo-img { height: 65px; }
             .hero-text h1 { font-size: 3rem; }
+            .hero-text .eslogan { font-size: 1.5rem; }
             .hero-text p { font-size: 1.2rem; }
             .cookie-circle { width: 240px; height: 240px; }
-            .cookie-emoji { font-size: 8.5rem; }
             .product-grid { border-radius: 50px; padding: 35px; }
-            .product-img { font-size: 8rem; }
+            .product-img-circle { width: 220px; height: 220px; padding: 15px; }
+            .ingredient-closeup-img { }
             .precio-numero { font-size: 2.5rem; }
             h2 { font-size: 2.3rem; }
             .ad-banner { font-size: 1.6rem; padding: 35px 25px; }
         }
 
-        /* Desktop */
         @media (min-width: 1024px) {
             .hero-text h1 { font-size: 3.5rem; }
             .cookie-circle { width: 280px; height: 280px; }
-            .cookie-emoji { font-size: 10rem; }
-            .product-img { font-size: 10rem; }
+            .product-img-circle { width: 260px; height: 260px; padding: 20px; }
             .precio-card { min-width: 170px; }
             .precio-numero { font-size: 2.8rem; }
             h2 { font-size: 2.6rem; }
             .ad-banner { font-size: 1.9rem; }
         }
 
-        /* Móviles pequeños (iPhone SE, Galaxy S8, etc.) */
         @media (max-width: 480px) {
             .top-bar { justify-content: center; text-align: center; }
             .cta-header { width: 100%; max-width: 250px; text-align: center; }
             .hero-text h1 { font-size: 2rem; }
+            .hero-text .eslogan { font-size: 1.1rem; }
             .hero-text p { font-size: 1rem; }
             .precio-lanzamiento { font-size: 1.3rem; padding: 8px 18px; }
             .cookie-circle { width: 160px; height: 160px; }
-            .cookie-emoji { font-size: 5.5rem; }
             .product-grid { flex-direction: column; text-align: center; }
-            .product-img { margin: 0 auto; width: 150px; height: 150px; font-size: 5rem; }
+            .product-img-circle { margin: 0 auto; width: 150px; height: 150px; padding: 8px; }
             .benefits li { justify-content: center; }
             .packaging-info { flex-direction: column; text-align: center; }
             .precios-flex { flex-direction: column; align-items: center; }
@@ -509,13 +592,13 @@
             section { padding: 35px 0; }
             .container { padding: 0 15px; }
             .ubicacion-badge { font-size: 0.8rem; padding: 5px 12px; }
+            .tabla-nutricional { font-size: 0.8rem; }
         }
 
-        /* Ajuste para evitar estiramiento en pantallas muy angostas */
         @media (max-width: 360px) {
             .hero-text h1 { font-size: 1.8rem; }
             .cookie-circle { width: 140px; height: 140px; }
-            .cookie-emoji { font-size: 4.5rem; }
+            .product-img-circle { width: 130px; height: 130px; padding: 6px; }
             .precio-lanzamiento { font-size: 1.1rem; }
         }
     </style>
@@ -534,8 +617,9 @@
                     <div class="ubicacion-badge fade-in">
                         📍 Barquisimeto, Estado Lara · Venezuela
                     </div>
-                    <h1>La <span class="highlight">galleta</span> que dice <em>Oui</em> a lo natural</h1>
-                    <p>Miel pura de abeja y ralladura de naranja fresca. Crujiente por fuera, suave por dentro. Un viaje sensorial en cada bocado.</p>
+                    <h1>Oui <span class="highlight">Cookies</span></h1>
+                    <p class="eslogan">✨ El "SÍ" que te mereces ✨</p>
+                    <p>Galletas artesanales con miel natural y toque de naranja. Suaves, deliciosas y <strong>libres de gluten</strong>. Un viaje sensorial en cada bocado.</p>
                     <div class="precio-lanzamiento pulse">
                         <small>$5.00</small> $3.80 <span style="font-size:0.9rem;">/ pack x6</span>
                     </div>
@@ -544,7 +628,8 @@
                 </div>
                 <div class="hero-image">
                     <div class="cookie-circle">
-                        <span class="cookie-emoji">🍪</span>
+                        <!-- Imagen de Alta Calidad del Pack de Galletas (reemplaza 🍪) -->
+                        <img src="WhatsApp Image 2026-05-27 at 23.11.11 (1).jpeg" alt="Oui Cookies Miel y Naranja Pack x6" class="hero-product-img fade-in">
                     </div>
                 </div>
             </div>
@@ -552,26 +637,70 @@
     </header>
 
     <main class="container">
+        <!-- SECCIÓN: PRODUCTO E INGREDIENTES -->
         <section>
             <h2 class="fade-in">Nuestra Receta Única</h2>
             <div class="product-grid fade-in">
-                <div class="product-img">🍯✨</div>
+                <!-- Imagen de Alta Calidad Artística de Ingredientes (reemplaza 🍯✨) -->
+                <div class="product-img-wrapper">
+                    <div class="product-img-circle">
+                        <img src="WhatsApp Image 2026-05-27 at 23.11.11.jpeg" alt="Ingredientes de Oui Cookies: Miel, Naranja y Coco" class="ingredient-closeup-img">
+                    </div>
+                </div>
                 <div class="product-details">
                     <h3>Oui Cookies · Miel & Naranja</h3>
+                    
+                    <!-- Badges de alérgenos -->
+                    <div style="margin: 10px 0;">
+                        <span class="gluten-free-badge">🌾 LIBRE DE GLUTEN</span>
+                        <span class="alergeno-badge">⚠️ CONTIENE HUEVO</span>
+                    </div>
+
                     <ul class="benefits">
-                        <li><strong>Miel 100% pura</strong> – endulzante natural</li>
-                        <li><strong>Ralladura de naranja orgánica</strong> – aceites esenciales</li>
-                        <li><strong>Mantequilla de campo</strong> – textura inigualable</li>
-                        <li><strong>Sin conservantes</strong> – horneado diario en Barquisimeto</li>
+                        <li>🍯 <strong>Miel Natural</strong> – Endulzante puro y natural</li>
+                        <li>🍊 <strong>Toque de Naranja</strong> – Frescura cítrica inigualable</li>
+                        <li>😋 <strong>Suaves y Deliciosas</strong> – Textura perfecta</li>
                     </ul>
+
                     <div class="packaging-info">
-                        <span style="font-size:2rem;">📦</span> 
-                        <span><strong>Empaque biodegradable</strong> con ventana transparente. Caja de 6 galletas (150g).</span>
+                        <span style="font-size:1.8rem;">📋</span> 
+                        <span><strong>Ingredientes:</strong> Avena integral libre de gluten, harina de avena libre de gluten, miel, huevos, naranja, aceite de coco, polvo de hornear y ralladura de coco.</span>
+                    </div>
+
+                    <!-- Instrucciones de conservación -->
+                    <div class="packaging-info" style="border-left-color: #8B6B4A;">
+                        <span style="font-size:1.8rem;">🌡️</span> 
+                        <span><strong>Conservación:</strong> Consérvese en un lugar fresco y seco, protegido de la luz solar directa. Una vez abierto, manténgase bien cerrado para preservar su frescura.</span>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- SECCIÓN: INFORMACIÓN NUTRICIONAL -->
+        <section>
+            <h2 class="fade-in">Información Nutricional</h2>
+            <div class="tabla-nutricional fade-in">
+                <h4>🍪 Tamaño por porción: 30 g (Aprox. 2 galletas)</h4>
+                <table>
+                    <tr><td colspan="2" style="font-weight:700; border-bottom: 2px solid var(--naranja);">Cantidad por porción</td></tr>
+                    <tr><td><strong>Calorías (Energía)</strong></td><td>140 Kcal</td></tr>
+                    <tr><td colspan="2" style="font-weight:700; border-bottom: 1px solid #ddd;">Grasas Totales</td></tr>
+                    <tr><td class="sub">Grasas Totales</td><td>6 g (9%)</td></tr>
+                    <tr><td class="sub">Grasas Saturadas</td><td>3 g (15%)</td></tr>
+                    <tr><td class="sub">Grasas Trans</td><td>0 g</td></tr>
+                    <tr><td><strong>Colesterol</strong></td><td>15 mg (5%)</td></tr>
+                    <tr><td><strong>Sodio</strong></td><td>85 mg (4%)</td></tr>
+                    <tr><td><strong>Carbohidratos Totales</strong></td><td>20 g (7%)</td></tr>
+                    <tr><td class="sub">Fibra Dietética</td><td>0.5 g (2%)</td></tr>
+                    <tr><td class="sub">Azúcares Totales</td><td>10 g</td></tr>
+                    <tr><td class="sub">Azúcares Añadidos</td><td>8 g (16%)</td></tr>
+                    <tr><td><strong>Proteínas</strong></td><td>2 g (4%)</td></tr>
+                </table>
+                <p style="font-size:0.7rem; margin-top:8px; color:#666;">* % Valores Diarios con base a una dieta de 2000 kcal.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: PROMOCIONES -->
         <section id="promocion">
             <h2 class="fade-in">Promoción de Lanzamiento</h2>
             <div class="promo-section">
@@ -601,6 +730,7 @@
             </div>
         </section>
 
+        <!-- SECCIÓN: TESTIMONIOS -->
         <section>
             <h2 class="fade-in">Nuestros clientes dicen</h2>
             <div class="testimonios">
@@ -624,22 +754,23 @@
             <div class="ad-banner">
                 🍊✨ ¿Antojo de algo real en Lara? <br> 
                 <span style="font-size:1.6rem;">Oui Cookies · Miel & Naranja</span> <br>
-                <span style="font-size:1rem;">#OuiCookies #Barquisimeto #HechoEnVenezuela</span>
+                <span style="font-size:1rem;">#OuiCookies #Barquisimeto #LibreDeGluten #HechoEnVenezuela</span>
             </div>
         </section>
 
+        <!-- SECCIÓN: UBICACIÓN Y CONTACTO -->
         <section style="background: linear-gradient(135deg, #FFF6E5, #FFECD2); border-radius: 40px; padding: 30px 20px; box-shadow: 0 15px 30px rgba(242, 140, 56, 0.15);">
             <h2>Encuéntranos en Barquisimeto</h2>
             <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content: center; text-align:left;">
                 <div style="flex:1 1 220px; font-size:1rem;">
                     <p>🛵 <strong>Envíos a todo Barquisimeto</strong> (pedidos sobre $8.00 gratis)</p>
                     <p style="margin-top:8px;">📦 <strong>Pickup en CC Las Trinitarias</strong> · Miércoles y Sábados</p>
-                    <p style="margin-top:8px;">🛍️ <strong>Ferias:</strong> Parque del Este · Mercado Artesanal de Lara</p>
+                    <p style="margin-top:8px;">🏫 <strong>Dirección:</strong> Universidad Nacional Experimental Simón Rodríguez, Barquisimeto, Estado Lara.</p>
                 </div>
                 <div style="background:var(--naranja); color:white; padding:22px 25px; border-radius:35px; text-align:center; box-shadow: 0 12px 28px rgba(242,140,56,0.35);">
-                    <p style="font-size:1.3rem; font-weight:bold;">📲 Pide por Instagram</p>
-                    <p style="font-size:1.1rem;">@OuiCookies_</p>
-                    <p style="font-size:1rem;">WhatsApp +58 412-1234567</p>
+                    <p style="font-size:1.3rem; font-weight:bold;">📲 Contáctanos</p>
+                    <p style="font-size:1.1rem;">Instagram: @ouicookies_</p>
+                    <p style="font-size:1rem;">WhatsApp: +58 412-1234567</p>
                 </div>
             </div>
         </section>
@@ -649,13 +780,16 @@
         <div class="container">
             <img src="logo-oui-cookies.png" alt="Oui Cookies" class="footer-logo">
             <p style="font-size:1.2rem; margin-top:10px; font-weight:600;">🍪 Oui Cookies · Barquisimeto, Lara</p>
-            <p style="font-size:1rem;">Galletas con miel y naranja · Hechas con amor y marketing</p>
+            <p style="font-size:1rem;">El "SÍ" que te mereces · Galletas con miel y naranja</p>
             <div class="social-links">
-                <a href="#">📸 Instagram</a>
+                <a href="https://instagram.com/ouicookies_" target="_blank">📸 @ouicookies_</a>
                 <a href="#">🎵 TikTok</a>
                 <a href="#">💬 WhatsApp</a>
             </div>
-            <p style="margin-top:20px; font-size:0.85rem; color:#FCE4A8;">© 2025 Oui Cookies · Proyecto Universitario de Mercadeo</p>
+            <p style="margin-top:20px; font-size:0.85rem; color:#FCE4A8;">
+                © 2025 Oui Cookies · RIF J-50123456-7 · Proyecto Universitario de Mercadeo<br>
+                UNESR - Barquisimeto, Estado Lara, Venezuela
+            </p>
         </div>
     </footer>
 </body>
